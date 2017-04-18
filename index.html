@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Highlightr</title>
+        <style>
+            *,
+            *:before,
+            *:after {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .highlight-javascript {
+                padding: 10px;
+                margin: 0;
+            }
+
+                .highlight.highlight-declaration {color: #0064ff;}
+                .highlight.highlight-global {color: #49cafd;}
+                .highlight.highlight-variable {color: orange;}
+                .highlight.highlight-control {color: pink;}
+                .highlight.highlight-iteration {color: purple;}
+                .highlight.highlight-function {color: #c50404;}
+                .highlight.highlight-string {color: blue;}
+                .highlight.highlight-module {color: #1cd478;}
+                .highlight.highlight-comment {color: #888;}
+
+        </style>
+    </head>
+    <body>
+        <pre class="highlight-javascript">
+import Everything from 'the-internet';
+
+// This is a function
+function hello() {
+    return 'world';
+}
+
+/*
+ * And this is a glorious assignment
+ */
+const a = 'b';
+
+if (a === 'b') {
+    console.log('whoa');
+}
+
+const getHello = hello();
+
+for (let i = 0; i < getHello.length; i++) {
+    console.log(getHello[i]);
+}
+
+window.expandoOnTheWindow = 'pew pew';
+        </pre>
+
+        <script src="./highlight.js"></script>
+        <script>
+            Array.from(document.querySelectorAll('.highlight-javascript')).forEach(code => code.innerHTML = highlight(code.innerText));
+        </script>
+    </body>
+</html>
